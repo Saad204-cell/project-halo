@@ -1,0 +1,31 @@
+# Note: T1 Catalytic Site Numbering Discrepancy
+
+## Project Halo | Open Limitation
+
+## What happened
+
+While trying to verify whether CB-Dock2 docking pockets overlapped with the real, literature-defined T1 copper catalytic site (rather than only the ESMFold-annotated "copper-binding loop" region), an attempt was made to cross-reference published crystallographic residue numbers against the residue numbers appearing in this project's structures and docking output.
+
+Published literature for Trametes versicolor laccase places the T1 site at approximately His394/395, His457/458, and Cys452/453 (numbering varies slightly by source).
+
+This project's docking output, generated from a UniProt/AlphaFold-derived structure, showed a recurring cluster of residues around His397, His422, Phe424, and nearby positions across several top-ranked cavities, close in the same general numeric neighborhood but not a clean, confirmable match to the literature numbers.
+
+## Why this likely happened
+
+Trametes versicolor laccase is a secreted enzyme, synthesized with a signal peptide that is cleaved off before the mature, functional protein is released. UniProt canonical sequence numbering typically counts from the very first residue of the unprocessed precursor, including the signal peptide, while older structural biology papers often number the mature, cleaved protein instead. This is a well-known, common source of residue numbering offset in secreted proteins.
+
+Additionally, Trametes versicolor has multiple laccase isozymes on record (for example UniProt entries associated with lcc1 and related genes), which may carry slightly different lengths and numbering conventions from each other, independent of the signal peptide issue.
+
+## What was tried
+
+- Manual arithmetic offset (adding the approximate signal peptide length to literature residue numbers) did not produce a clean, confirmable match.
+- A separate AI tool (Gemini) was consulted for help identifying the T1 site directly from the docking output. It returned a confident, specific answer (residues His118 and His422) that was checked against the literature and found to be incorrect. This is noted here as a real, documented instance of an AI tool producing a plausible but factually wrong answer, consistent with this project's overall practice of verifying AI-generated claims rather than accepting them at face value.
+- A ChimeraX-based geometric verification (searching for a real 3D cluster of two Histidines and one Cysteine sitting close enough together to jointly coordinate a single copper atom, independent of residue numbering) was identified as the more reliable path forward but was not completed within the timeframe of this project.
+
+## Current status
+
+**Unresolved.** This project does not claim a confirmed identification of the exact T1 catalytic site within its own structures. Docking results are reported and interpreted with this limitation stated explicitly (see docking-report-trametes.md and docking-report-bacillus.md), rather than assuming the ESMFold-annotated copper-binding loop region is equivalent to the true T1 site.
+
+## If revisited
+
+The geometric ChimeraX verification method described above (searching for a real spatial His-His-Cys cluster rather than relying on any single numbering convention) is the recommended next step if this question is picked up again in future work.
