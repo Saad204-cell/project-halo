@@ -1,0 +1,28 @@
+# Docking Report — Trametes versicolor (Control)
+
+## Project Halo | Phase 4
+
+## Setup
+- Structure: ESMFold prediction, Trametes versicolor laccase (519 aa)
+- Ligand: C.I. Reactive Black 5 (PubChem CID 135442967), target azo dye
+- Tool: CB-Dock2, Auto Blind Docking
+- Copper-binding loop region of interest: SER 82 - GLN 104
+
+## Top Pockets
+
+| Pocket | Score (kcal/mol) | Overlap with loop (82-104)? |
+|---|---|---|
+| C1 | -8.3 | None |
+| C2 | -8.0 | None |
+
+Full cavity scan (21 pockets total, see raw CB-Dock2 output): no pocket showed direct residue overlap with the 82-104 loop range. Closest pockets sit outside this range on both sides.
+
+## Interpretation
+
+No meaningful overlap found between the top-ranked or lower-ranked docking pockets and the defined copper-binding loop region. Top scores were closely clustered (0.3 kcal/mol apart), a pattern previously identified during tool testing as a sign of low confidence in any single pocket assignment, rather than a clear, dominant binding site.
+
+An attempt to cross-reference these results against the literature-defined T1 catalytic site (approximately His394/395, His457/458, Cys452/453 in prior crystallographic studies) surfaced a residue-numbering discrepancy between this structure and the published reference data, likely due to signal peptide inclusion differences. This was not resolved within the scope of this analysis. See [t1-site-numbering-limitation.md](../notes/t1-site-numbering-limitation.md).
+
+## Verdict
+
+**Inconclusive.** Docking alone does not provide clear evidence either supporting or contradicting the project hypothesis for the control enzyme. Reported as an honest limitation rather than a confirmed negative result.
