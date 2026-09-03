@@ -1,0 +1,28 @@
+# Docking Report — Bacillus safensis (Candidate)
+
+## Project Halo | Phase 4
+
+## Setup
+- Structure: ESMFold prediction, Bacillus safensis CotA laccase, proxy candidate (510 aa)
+- Ligand: C.I. Reactive Black 5 (PubChem CID 135442967), target azo dye
+- Tool: CB-Dock2, Auto Blind Docking
+- Copper-binding loop region of interest: LEU 104 - PHE 125
+
+## Top Pockets
+
+| Pocket | Score (kcal/mol) | Overlap with loop (104-125)? |
+|---|---|---|
+| C2 | -8.4 | 1 residue (VAL 108) |
+| C5 | -8.4 (tied) | None |
+
+## Interpretation
+
+One residue of overlap (Val108) was found between the top-ranked pocket and the defined copper-binding loop, out of roughly 29 total contact residues in that pocket. This is thin evidence, a small margin over the control's zero overlap, and not the kind of dense, confident overlap seen in earlier tool validation testing (compare: Indinavir-HIV protease toy run, which showed direct overlap with the known catalytic residue Asp25 as a central part of the top pocket).
+
+Top scores were tied exactly between two different pockets (C2 and C5), an even more ambiguous result than the control's already-close clustering, indicating the tool is not confidently distinguishing one dominant binding site.
+
+The same T1 catalytic site numbering discrepancy noted for the control applies here as well; see [t1-site-numbering-limitation.md](../notes/t1-site-numbering-limitation.md).
+
+## Verdict
+
+**Inconclusive, with a thin margin in the candidate's favor.** The one-residue overlap is not treated as meaningful confirmation on its own. Docking evidence for this project's hypothesis is weak on both proteins and should not be read as supporting the hypothesis as clearly as the salt bridge analysis does.
